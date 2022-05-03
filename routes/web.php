@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('home');
-});
+    $data = [
+        'students' => [['firstName' => "Alessandro", 'lastName' => "Baldassarre"],['firstName' => "Giovanni", 'lastName' => "Salazar"], ['firstName' => "Andrea", 'lastName' => "Picasso"]],
+        'courses' => [['name' => "Boolean"],['name' => "Udemy"]],
+    ];
+    return view('home', $data);
+})->name ('home');
