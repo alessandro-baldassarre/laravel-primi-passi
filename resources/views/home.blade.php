@@ -17,28 +17,42 @@
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            h1{
-                text-align: center;
+            header{
+                margin: 0;
+                height: 80px;
+                background-color: lightgray;
+                display: flex;
+                align-items: center;
             }
-            h2{
-                margin-left: 2rem;
+            ul{
+                display: flex;
+                list-style-type: none;
+                margin: 0;
+            }
+            li{
+                margin-right: 3rem;
+            }
+            a{
+                text-decoration: none;
+
             }
 
         </style>
     </head>
     <body>
-       <h1>Hello World</h1>
-
-       <h2>Lista Studenti</h2>
-
-       <ul>
-            @foreach ($students as $student)
-            
-                    <li>Nome :{{$student['firstName']}}</li>
-                    <li>Cognome: {{$student['lastName']}}</li>
+        <header>
+            <ul>
+                @foreach ($links as $link)
                 
-            @endforeach
-        </ul>
+                        <li> <a href="{{route($link['name'])}}"> {{$link['name']}} </a> </li>
+                    
+                @endforeach
+            </ul>
+        </header>
+      
     </body>
 </html>
